@@ -1,0 +1,48 @@
+ <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+<div class="main">
+<mat-toolbar color="primary" class="mat-elevation-z8">
+  <!-- <span>Events</span>
+  <mat-icon>batch_prediction</mat-icon> -->
+  <span style="font-family: emoji;"><mat-icon>eco</mat-icon>Angular Events</span>
+ 
+  <!-- <div class="search" >
+    <input type="text" 
+    placeholder="&nbsp;&nbsp;&nbsp;Search for a events " style="width: 500px; height: 40px;
+     border-radius: 8px; margin-left: 10px; border: none; margin-bottom: 15px; margin-top: 10px;">
+   
+    <span>
+      <mat-icon style="margin-left: -50px; color:cornflowerblue; margin-top: 9px;">search</mat-icon>
+    </span>
+  </div> -->
+
+  <div class="spacing"> </div>
+    <a mat-button style="font-family: emoji;">ng Events</a>
+    <!-- <a mat-button  style="font-family: emoji;" routerLink="active">All Events</a> -->
+    <a mat-button  [routerLink] = "['/events/new']" style="font-family: emoji;" routerLinkActive="active">Create Event</a>
+    <a mat-button  style="font-family: emoji;">about Us</a>
+    <a mat-button  style="font-family: emoji;"><mat-icon>account_circle</mat-icon></a>
+ 
+</mat-toolbar>
+<br>
+
+  <div style="margin-left: 40px; padding-left: 15px;">
+    <div >
+        <h1 style="color: rgb(108, 108, 175); font-family: 'Courier New', Courier, monospace;">Upcoming Angular Events</h1>
+    </div>
+       <hr/>
+
+      <input type="text" placeholder="search events" [(ngModel)]="searchName" style="margin-bottom: 20px;">
+      
+
+      <!--  -->
+     <div class="row">
+        <div *ngFor="let event of events | filter:searchName" class="col-md-5">
+            <app-event-thumbnail  [event]="event"></app-event-thumbnail>
+        </div>
+     </div>
+     <!--  -->
+
+
+
+
+  
